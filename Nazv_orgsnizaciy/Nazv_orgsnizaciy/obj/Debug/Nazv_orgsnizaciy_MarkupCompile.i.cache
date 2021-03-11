@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Git\lab\Nazv_orgsnizaciy\Nazv_orgsnizaciy\App.xaml
-4-1917723947
+8-1303189414
 2-157003947
-241023394456
+28-451934070
 29-1070759267
-MainWindow.xaml;ServiceWindow.xaml;windows\ClientServiceWindow.xaml;windows\InputBoxWindow.xaml;
+Frames\InputBoxFrame.xaml;Frames\MainFrame.xaml;MainWindow.xaml;ServiceWindow.xaml;Frames\ClientServiceFrame.xaml;windows\ClientServiceWindow.xaml;windows\InputBoxWindow.xaml;Frames\ServiceFrame.xaml;
 
 True
 

@@ -1,0 +1,34 @@
+﻿<Page x:Class="Nazv_orgsnizaciy.Frames.InputBoxFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Nazv_orgsnizaciy.Frames"
+      mc:Ignorable="d" 
+      d:DesignHeight="110" d:DesignWidth="530"
+      Title="InputBoxFrame">
+
+    <Grid>
+         <StackPanel 
+        Orientation="Vertical">
+            <TextBox 
+            x:Name="TextBox" 
+            Margin="10" 
+            Text="{Binding InputText}"/>
+            <StackPanel 
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                <Button 
+                x:Name="OkButton"
+                Content="Ok"
+                Margin="5"
+                Click="OkButton_Click"/>
+                <Button
+                x:Name="CancelButton"
+                Content="Cancel"
+                Margin="5"
+                Click="CancelButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

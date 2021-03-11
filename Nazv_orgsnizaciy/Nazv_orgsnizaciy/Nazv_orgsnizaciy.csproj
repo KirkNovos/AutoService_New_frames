@@ -108,6 +108,12 @@
     <Compile Include="DocumentByService.cs">
       <DependentUpon>toporova.tt</DependentUpon>
     </Compile>
+    <Compile Include="Frames\InputBoxFrame.xaml.cs">
+      <DependentUpon>InputBoxFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\MainFrame.xaml.cs">
+      <DependentUpon>MainFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gender.cs">
       <DependentUpon>toporova.tt</DependentUpon>
     </Compile>
@@ -150,12 +156,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>toporova.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Frames\ClientServiceFrame.xaml.cs">
+      <DependentUpon>ClientServiceFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="windows\ClientServiceWindow.xaml.cs">
       <DependentUpon>ClientServiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="windows\InputBoxWindow.xaml.cs">
       <DependentUpon>InputBoxWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\ServiceFrame.xaml.cs">
+      <DependentUpon>ServiceFrame.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Frames\InputBoxFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\MainFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,11 +192,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frames\ClientServiceFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="windows\ClientServiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="windows\InputBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\ServiceFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,5 +264,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

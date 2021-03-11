@@ -1,5 +1,4 @@
-﻿using DocuSign.eSign.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +11,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/*
+
+
 namespace Nazv_orgsnizaciy
 {
     public partial class Client
@@ -74,18 +75,17 @@ namespace Nazv_orgsnizaciy
     }
 }
 
+
 namespace Nazv_orgsnizaciy.windows
 {
     /// <summary>
-    /// Логика взаимодействия для ClientServiceWindow.xaml
+    /// Логика взаимодействия для ClientServiceFrame.xaml
     /// </summary>
-    public partial class ClientServiceWindow : Window
+    public partial class ClientServiceFrame : Page
     {
         public List<Client> ClientList { get; set; }
         public ClientService CurrentClientService { get; set; }
-        //public List<Service> ServiceList { get; set; }
-
-        public ClientServiceWindow(Service selected)
+        public ClientServiceFrame(Service selected)
         {
             InitializeComponent();
             DataContext = this;
@@ -94,9 +94,7 @@ namespace Nazv_orgsnizaciy.windows
             CurrentClientService = new ClientService();
             CurrentClientService.Service = selected;
             CurrentClientService.StartTime = DateTime.Now;
-            
         }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -117,8 +115,7 @@ namespace Nazv_orgsnizaciy.windows
                 MessageBox.Show(ex.Message);
                 return;
             }
-            DialogResult = true;
+            //DialogResult = true;
         }
     }
 }
-*/

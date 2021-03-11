@@ -52,8 +52,9 @@ namespace Nazv_orgsnizaciy
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-            ServiceList = Core.DB.Service.ToList();
+            //this.DataContext = this;
+            MainFrame.Navigate(new Frames.MainFrame());
+            //ServiceList = Core.DB.Service.ToList();
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -96,6 +97,7 @@ namespace Nazv_orgsnizaciy
             if (IsAdminMode) IsAdminMode = false;
             else
             {
+                //NavigationService.Navigate(new Frames.InputBoxFrame());
                 // создаем окно для ввода пароля
                 var InputBox = new InputBoxWindow("Введите пароль Администратора");
                 // и показываем его как диалог (модально)
@@ -225,34 +227,9 @@ namespace Nazv_orgsnizaciy
             }
         }
 
-        private void DeleteButtonClick(object sender, RoutedEventArgs e)
-        {
-            var item = MainDataGrid.SelectedItem as Service;
+        
 
-            if (item.ClientService.Count > 0)
-            {
-                MessageBox.Show("Нельзя удалять услугу, она уже оказана");
-                return;
-            }
-
-            Core.DB.Service.Remove(item);
-
-            Core.DB.SaveChanges();
-
-            ServiceList = Core.DB.Service.ToList();
-        }
-
-        private void EditButon_Click(object sender, RoutedEventArgs e)
-        {
-            var SelectedService = MainDataGrid.SelectedItem as Service;
-            var EditServiceWindow = new ServiceWindow(SelectedService);
-            if ((bool)EditServiceWindow.ShowDialog())
-            {
-                // при успешном завершении не забываем перерисовать список услуг
-                PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
-                // и еще счетчики - их добавьте сами
-            }
-        }
+        
 
         private void AddService_Click(object sender, RoutedEventArgs e)
         {
@@ -269,12 +246,6 @@ namespace Nazv_orgsnizaciy
             }
         }
 
-        private void SubscrideButton_Click(object sender, RoutedEventArgs e)
-        {
-            var SelectedService = MainDataGrid.SelectedItem as Service;
-            var SubscrideServiceWindow = new windows.ClientServiceWindow(SelectedService);
-            SubscrideServiceWindow.ShowDialog();
-
-        }
+        
      }
 }

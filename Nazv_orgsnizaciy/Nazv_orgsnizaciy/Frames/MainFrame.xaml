@@ -1,0 +1,103 @@
+﻿<Window x:Class="Nazv_orgsnizaciy.Frames.MainFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nazv_orgsnizaciy.Frames"
+        mc:Ignorable="d"
+        Title="MainFrame" Height="450" Width="800">
+    <Grid>
+        <DataGrid 
+            x:Name="MainDataGrid"
+            Grid.Column="1"
+            ItemsSource="{Binding ServiceList}"
+             CanUserAddRows="false"
+             AutoGenerateColumns="False">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger 
+                Binding="{Binding HasDiscount}" 
+                Value="False">
+                                <Setter 
+                    Property="Background" 
+                    Value="LightGreen"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                <DataGridTextColumn
+            Width="250"
+            Header="Наименование услуги"
+            Binding="{Binding Title}"/>
+                <DataGridTemplateColumn 
+            Width="100"
+            Header="Стоимость">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                            TextDecorations="{Binding CostTextDecoration}"
+                            Text="{Binding CostString}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn 
+                    Width="150"
+                    Header="Продолжительность"
+                    Binding="{Binding DurationInSeconds}"/>
+                <DataGridTemplateColumn 
+                    Width="64"
+                    Header="Картинки">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image 
+                                Height="64" 
+                                Width="64" 
+                                Source="{Binding ImageUri}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn 
+            Width="60"
+            Header="Скидка"
+            Binding="{Binding DiscountString}"/>
+                <DataGridTextColumn 
+            Width="100"
+            Header="Стоимость со скидкой"
+            Binding="{Binding CostWithDiscount}"/>
+
+
+                <DataGridTemplateColumn
+                Header="Действия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                            Visibility="{Binding DataContext.AdminVisibility, ElementName=Root}"
+                            Orientation="Horizontal">
+                                <Button 
+                                Content="Редактировать" 
+                                Name="EditButton" Click="EditButon_Click"/>
+                                <Button 
+                                        Content="Записаться" 
+                                        Name="SubscrideButton"
+                                        
+                                        Click="SubscrideButton_Click"/>
+                                <Button 
+                                Content="Удалить" 
+                                Name="DeleteButton" Click="DeleteButtonClick"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Window>

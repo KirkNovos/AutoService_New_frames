@@ -12,29 +12,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nazv_orgsnizaciy
+namespace Nazv_orgsnizaciy.windows
 {
     /// <summary>
-    /// Логика взаимодействия для ServiceWindow.xaml
+    /// Логика взаимодействия для ServiceFrame.xaml
     /// </summary>
-    public partial class ServiceWindow : Window, INotifyPropertyChanged
+    public partial class ServiceFrame : Page, INotifyPropertyChanged
     {
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Service CurrentService { get; set; }
 
-        public ServiceWindow(Service service)
+        public ServiceFrame(Service service)
         {
             InitializeComponent();
             DataContext = this;
-            CurrentService = service;   
+            CurrentService = service;
         }
-
-
-
         public string WindowName
         {
             get
@@ -89,7 +86,7 @@ namespace Nazv_orgsnizaciy
             catch
             {
             }
-            DialogResult = true;
+            //DialogResult = true;
         }
     }
 }
