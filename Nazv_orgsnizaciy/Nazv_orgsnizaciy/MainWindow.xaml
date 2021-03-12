@@ -33,47 +33,15 @@
                 Click="ExitButton_Click"
                 Style="{StaticResource BrownButtonStyle}"/>
         </StackPanel>
-        <StackPanel 
-            Orientation="Vertical" 
-            VerticalAlignment="Center" Height="212" Margin="0,145,0,62">
-            <Label Content="Цена: "/>
-            <RadioButton 
-        GroupName="Price"
-        Tag="1"
-        Content="по возрастанию" 
-        IsChecked="True" 
-        Checked="RadioButton_Checked"
-        VerticalContentAlignment="Center"/>
-            <RadioButton 
-        GroupName="Price" 
-        Tag="2"
-        Content="по убыванию" 
-        Checked="RadioButton_Checked"
-        VerticalContentAlignment="Center"/>
-
-            <Label Content="Фильтр по скидке: "
-        Margin="10,0,0,0"
-        VerticalAlignment="Center"/>
-            <ComboBox
-         Name="DiscountFilterComboBox"
-         SelectedIndex="0"
-        SelectionChanged="DiscountFilterComboBox_SelectionChanged"
-        ItemsSource="{Binding FilterByDiscountNamesList}"/>
-            <Label Content="Поиск"/>
-            <TextBox
-                    x:Name="SearchFilterTextBox"
-                    VerticalAlignment="Center"
-                    KeyUp="TextBox_KeyUp"/>
-            <Label Content="{Binding ServicesCount}"/>
-            <Label Content="{Binding FilteredServicesCount}"/>
-        </StackPanel>
+        
         <Image 
         Margin="5"
         Source="./NewFolder1/service_logo.png" 
         VerticalAlignment="Top"/>
         
         <Frame x:Name="MainFrame" 
-        Grid.Column="1"/>
+            Grid.Column="1"
+            NavigationUIVisibility="Hidden"/>
 
     </Grid>
 

@@ -111,8 +111,8 @@
     <Compile Include="Frames\InputBoxFrame.xaml.cs">
       <DependentUpon>InputBoxFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\MainFrame.xaml.cs">
-      <DependentUpon>MainFrame.xaml</DependentUpon>
+    <Compile Include="Frames\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gender.cs">
       <DependentUpon>toporova.tt</DependentUpon>
@@ -172,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\MainFrame.xaml">
+    <Page Include="Frames\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
