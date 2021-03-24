@@ -18,20 +18,28 @@ using System.Windows.Shapes;
 
 namespace Nazv_orgsnizaciy
 {
+    
+  
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     //
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        
+        public static bool _IsAdminMode = false;
+        //public static MainWindow MainWindRef = null;
+        Frames.MainPage MP;
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            //MainWindRef = this;
             //MainFrame page = new MainFrame;
             //MainFrame.Content = MainFrame;
-            MainFrame.Navigate(new Frames.MainPage() );
+            
+            MP = new Frames.MainPage();
+            MainFrame.Navigate(MP);
             //ServiceList = Core.DB.Service.ToList();
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +47,13 @@ namespace Nazv_orgsnizaciy
             Application.Current.Shutdown();
         }
 
-        private Boolean _IsAdminMode = false;
+
+        public void DoUpdate()
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs("AdminModeCaption"));
+            PropertyChanged(this, new PropertyChangedEventArgs("AdminVisibility"));
+        }
+        //private Boolean _IsAdminMode = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -71,18 +85,19 @@ namespace Nazv_orgsnizaciy
         private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
             // если мы уже в режиме Администратора, то выходим из него 
-            if (IsAdminMode) IsAdminMode = false;
+            if (IsAdminMode == true) {
+                IsAdminMode = false;
+                //(Frames.MainPage as MainPage).DoUpdate();
+                //(Application.Current.MainWindow as MainWindow).DoUpdate();
+                //Frames.MainPage().DoUpdateMainPage();
+                
+                //Frames.MainPage CurrentMainPage;
+                //CurrentMainPage = Frames.MainPage;
+                MP. DoUpdateMainPage();
+            }
             else
             {
-                //NavigationService.Navigate(new Frames.InputBoxFrame());
-                // создаем окно для ввода пароля
-                var InputBox = new InputBoxWindow("Введите пароль Администратора");
-                // и показываем его как диалог (модально)
-                if ((bool)InputBox.ShowDialog())
-                {
-                    // если нажали кнопку "Ok", то включаем режим, если пароль введен верно
-                    IsAdminMode = InputBox.InputText == "0000";
-                }
+                MainFrame.Navigate(new Frames.InputBoxFrame());
             }
         }
 

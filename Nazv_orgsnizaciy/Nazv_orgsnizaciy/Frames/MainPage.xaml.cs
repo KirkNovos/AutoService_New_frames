@@ -22,6 +22,7 @@ namespace Nazv_orgsnizaciy.Frames
     public partial class MainPage : Page, INotifyPropertyChanged
     {
 
+
         public event PropertyChangedEventHandler PropertyChanged;
         private List<Service> _ServiceList;
         public List<Service> ServiceList
@@ -58,13 +59,30 @@ namespace Nazv_orgsnizaciy.Frames
             }
         }
 
-        public MainPage()
+        public  MainPage()
         {
             InitializeComponent();
             this.DataContext = this;
+            this.Loaded += MainPage_Loaded;
             ServiceList = Core.DB.Service.ToList();
         }
 
+
+        public void DoUpdateMainPage()
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
+                PropertyChanged(this, new PropertyChangedEventArgs("AdminVisibility"));
+            }
+        }
+
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("loaded");
+            PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
+        }
 
         private Boolean _SortPriceAscending = true;
         public Boolean SortPriceAscending
@@ -216,6 +234,31 @@ namespace Nazv_orgsnizaciy.Frames
             //var SubscrideServiceWindow = new windows.ClientServiceWindow(SelectedService);
             //SubscrideServiceWindow.ShowDialog();
 
+        }
+
+
+
+        public Boolean IsAdminMode
+        {
+            get { return MainWindow._IsAdminMode; }
+            set
+            {
+                MainWindow._IsAdminMode = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("AdminModeCaption"));
+                    PropertyChanged(this, new PropertyChangedEventArgs("AdminVisibility"));
+                }
+            }
+        }
+
+        public string AdminVisibility
+        {
+            get
+            {
+                if (IsAdminMode) return "Visible";
+                return "Collapsed";
+            }
         }
 
     }

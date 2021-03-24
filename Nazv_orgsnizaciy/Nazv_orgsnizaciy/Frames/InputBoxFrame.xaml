@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Nazv_orgsnizaciy.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="110" d:DesignWidth="530"
-      Title="InputBoxFrame">
+      Title="WindowCaption">
 
     <Grid>
          <StackPanel 
