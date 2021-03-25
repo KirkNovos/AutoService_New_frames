@@ -76,7 +76,7 @@ namespace Nazv_orgsnizaciy
 }
 
 
-namespace Nazv_orgsnizaciy.windows
+namespace Nazv_orgsnizaciy.Frames
 {
     /// <summary>
     /// Логика взаимодействия для ClientServiceFrame.xaml
@@ -85,6 +85,7 @@ namespace Nazv_orgsnizaciy.windows
     {
         public List<Client> ClientList { get; set; }
         public ClientService CurrentClientService { get; set; }
+
         public ClientServiceFrame(Service selected)
         {
             InitializeComponent();
@@ -104,17 +105,20 @@ namespace Nazv_orgsnizaciy.windows
                 if (CurrentClientService.Client == null)
                     throw new Exception("Не выбран клиент");
 
-                if (CurrentClientService.Service == null)
-                    throw new Exception("Не выбрана услуга");
+                if (CurrentClientService.Comment == null)
+                    throw new Exception("Не выбран комментарий");
 
                 Core.DB.ClientService.Add(CurrentClientService);
                 Core.DB.SaveChanges();
+                //MessageBox.Show("Запись успешно сохранена");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
             //DialogResult = true;
         }
     }

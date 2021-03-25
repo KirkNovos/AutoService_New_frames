@@ -62,7 +62,8 @@ namespace Nazv_orgsnizaciy.Frames
           
             
             b = false;
-            NavigationService.Navigate(new MainPage());
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
             //DialogResult = false;
         }
     }

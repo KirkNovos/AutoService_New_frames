@@ -24,7 +24,7 @@ namespace Nazv_orgsnizaciy.Frames
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private List<Service> _ServiceList;
+        private List<Service> _ServiceList = new List<Service>();
         public List<Service> ServiceList
         {
             get
@@ -64,7 +64,7 @@ namespace Nazv_orgsnizaciy.Frames
             InitializeComponent();
             this.DataContext = this;
             this.Loaded += MainPage_Loaded;
-            ServiceList = Core.DB.Service.ToList();
+            
         }
 
 
@@ -80,6 +80,7 @@ namespace Nazv_orgsnizaciy.Frames
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            ServiceList = Core.DB.Service.ToList();
             //MessageBox.Show("loaded");
             PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
         }
@@ -201,13 +202,15 @@ namespace Nazv_orgsnizaciy.Frames
         private void EditButon_Click(object sender, RoutedEventArgs e)
         {
             var SelectedService = MainDataGrid.SelectedItem as Service;
-            var EditServiceWindow = new ServiceWindow(SelectedService);
-            if ((bool)EditServiceWindow.ShowDialog())
-            {
+            //var EditServiceWindow = new ServiceWindow(SelectedService);
+            NavigationService.Navigate(new Frames.ServiceFrame(SelectedService));
+            PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
+            //if ((bool)EditServiceWindow.ShowDialog())
+            //{
                 // при успешном завершении не забываем перерисовать список услуг
-                PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
+            //    PropertyChanged(this, new PropertyChangedEventArgs("ServiceList"));
                 // и еще счетчики - их добавьте сами
-            }
+            //}
         }
 
 
@@ -231,6 +234,7 @@ namespace Nazv_orgsnizaciy.Frames
         private void SubscrideButton_Click(object sender, RoutedEventArgs e)
         {
             var SelectedService = MainDataGrid.SelectedItem as Service;
+            NavigationService.Navigate(new Frames.ClientServiceFrame(SelectedService));
             //var SubscrideServiceWindow = new windows.ClientServiceWindow(SelectedService);
             //SubscrideServiceWindow.ShowDialog();
 

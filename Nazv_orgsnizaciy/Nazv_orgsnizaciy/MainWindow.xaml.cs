@@ -111,29 +111,22 @@ namespace Nazv_orgsnizaciy
             }
         }
        
-
-
-        
-
-        
-
-        
-
         private void AddService_Click(object sender, RoutedEventArgs e)
         {
+
+            
+
             // создаем новую услугу
             var NewService = new Service();
-
-            var NewServiceWindow = new ServiceWindow(NewService);
-            if ((bool)NewServiceWindow.ShowDialog())
-            {
+            MainFrame.Navigate(new Frames.ServiceFrame(NewService));
+            //var NewServiceWindow = new ServiceWindow(NewService);
+            //if ((bool)NewServiceWindow.ShowDialog())
+            //{
                 // список услуг нужно перечитать с сервера
                 //ServiceList = Core.DB.Service.ToList();
                 PropertyChanged(this, new PropertyChangedEventArgs("FilteredProductsCount"));
                 PropertyChanged(this, new PropertyChangedEventArgs("ProductsCount"));
-            }
+            //}
         }
-
-        
      }
 }

@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nazv_orgsnizaciy.windows
+namespace Nazv_orgsnizaciy.Frames
 {
     /// <summary>
     /// Логика взаимодействия для ServiceFrame.xaml
@@ -86,6 +86,9 @@ namespace Nazv_orgsnizaciy.windows
             catch
             {
             }
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
+            
             //DialogResult = true;
         }
     }

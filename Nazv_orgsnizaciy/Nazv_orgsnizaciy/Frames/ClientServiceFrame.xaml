@@ -1,4 +1,4 @@
-﻿<Page x:Class="Nazv_orgsnizaciy.windows.ClientServiceFrame"
+﻿<Page x:Class="Nazv_orgsnizaciy.Frames.ClientServiceFrame"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -45,6 +45,7 @@
             <TextBox Text="{Binding CurrentClientService.StartTimeText}"/>
             <Label Content="Комментарий"/>
             <TextBox Text="{Binding CurrentClientService.Comment}"/>
+            <Button  HorizontalAlignment="Left" Width="100" Click="SaveButton_Click">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Page>
