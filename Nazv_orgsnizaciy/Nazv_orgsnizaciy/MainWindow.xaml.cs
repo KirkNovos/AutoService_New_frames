@@ -28,6 +28,7 @@ namespace Nazv_orgsnizaciy
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public static bool _IsAdminMode = false;
+        
         //public static MainWindow MainWindRef = null;
         Frames.MainPage MP;
         public MainWindow()
@@ -40,8 +41,10 @@ namespace Nazv_orgsnizaciy
             
             MP = new Frames.MainPage();
             MainFrame.Navigate(MP);
+            
             //ServiceList = Core.DB.Service.ToList();
         }
+
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -94,6 +97,7 @@ namespace Nazv_orgsnizaciy
                 //Frames.MainPage CurrentMainPage;
                 //CurrentMainPage = Frames.MainPage;
                 MP. DoUpdateMainPage();
+                PropertyChanged(this, new PropertyChangedEventArgs("WindText"));
             }
             else
             {

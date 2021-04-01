@@ -22,7 +22,6 @@ namespace Nazv_orgsnizaciy.Frames
     public partial class MainPage : Page, INotifyPropertyChanged
     {
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         private List<Service> _ServiceList = new List<Service>();
         public List<Service> ServiceList
@@ -64,7 +63,7 @@ namespace Nazv_orgsnizaciy.Frames
             InitializeComponent();
             this.DataContext = this;
             this.Loaded += MainPage_Loaded;
-            
+            //MainWindow.WindText = "Услуги автосервиса";
         }
 
 

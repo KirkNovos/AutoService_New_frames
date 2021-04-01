@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Nazv_orgsnizaciy.windows"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ServiceFrame">
+      Title="{Binding WindowName}">
 
     <Grid>
         <Grid.ColumnDefinitions>

@@ -36,6 +36,7 @@ namespace Nazv_orgsnizaciy.Frames
             InitializeComponent();
             
             this.DataContext = this;
+            
         }
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
